@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the Backend to FlipKart Clone ",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc .",
+    "start": "dist/server.js",
+    "dev": "tsc -w & nodemon ."
+  },
+  "author": "Junior Hlongwane",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.16",
+    "nodemon": "^2.0.6"
+  }
+}
