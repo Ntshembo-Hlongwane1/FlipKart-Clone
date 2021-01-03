@@ -1,10 +1,12 @@
 import express, { Application } from 'express';
 import { config } from 'dotenv';
-import mongoose, { CastError, ConnectOptions } from 'mongoose';
+import { CastError, ConnectOptions, connect } from 'mongoose';
 import expressSession from 'express-session';
 import MongoStore, { MongoDBStore } from 'connect-mongodb-session';
 import cors from 'cors';
 config();
+//==============================================================Routes Import===================================================
+import AuthRoute from './Routes/Auth/Auth';
 
 const app: Application = express();
 enum BaseUrl {
@@ -22,10 +24,11 @@ app.use(cors(corsOptions));
 
 const mongoStore = MongoStore(expressSession);
 
+const cookieAge: number = 10 * 60 * 60 * 24 * 1000;
 const store: MongoDBStore = new mongoStore({
-  collection: 'usersession',
+  collection: 'usersessions',
   uri: mongoURI,
-  expires: 10 * 60 * 60 * 24 * 1000
+  expires: cookieAge
 });
 
 const isCookieSecure: boolean = process.env.NODE_ENV === 'production' ? true : false;
@@ -39,7 +42,7 @@ app.use(
     store: store,
     cookie: {
       httpOnly: true,
-      maxAge: 10 * 60 * 60 * 24 * 1000,
+      maxAge: cookieAge,
       secure: isCookieSecure,
       sameSite: false
     }
@@ -54,12 +57,15 @@ const connectionOptions: ConnectOptions = {
   useUnifiedTopology: true
 };
 
-mongoose.connect(mongoURI, connectionOptions, (error: CastError) => {
+connect(mongoURI, connectionOptions, (error: CastError) => {
   if (error) {
     return console.error(error.message);
   }
   return console.log('Connection to MongoDB was successful');
 });
+
+//====================================================Server Endpoints==========================================================
+app.use(AuthRoute);
 
 //===============================================Server Connection & Configd====================================================
 const PORT = process.env.PORT || 5000;
