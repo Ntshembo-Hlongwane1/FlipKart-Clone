@@ -11,11 +11,25 @@
   "author": "Junior Hlongwane",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-mongodb-session": "^2.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "formidable": "^1.2.2",
+    "mongoose": "^5.11.9",
     "node": "^15.4.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/connect-mongodb-session": "^2.4.0",
+    "@types/cors": "^2.8.9",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.9",
+    "@types/express-session": "^1.17.3",
+    "@types/formidable": "^1.0.32",
+    "@types/mongoose": "^5.10.3",
     "@types/node": "^14.14.16",
     "nodemon": "^2.0.6"
   }
