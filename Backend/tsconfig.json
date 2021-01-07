@@ -14,9 +14,20 @@
         "node_modules/*",
         "src/types/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "mocha",
+      "chai"
+    ],
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
   ],
+  "exclude": [
+    "node_modules/"
+  ]
 }

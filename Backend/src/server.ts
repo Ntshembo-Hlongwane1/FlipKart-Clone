@@ -8,7 +8,7 @@ config();
 //==============================================================Routes Import===================================================
 import AuthRoute from './Routes/Auth/Auth';
 
-const app: Application = express();
+export const app: Application = express();
 enum BaseUrl {
   dev = 'http://localhost:3000',
   prod = ''

@@ -4,9 +4,9 @@
   "description": "This is the Backend to FlipKart Clone ",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc .",
-    "start": "dist/server.js",
-    "dev": "tsc -w & nodemon ."
+    "build": "tsc -p .",
+    "start": "NODE_ENV=production dist/server.js",
+    "dev": "NODE_ENV=development tsc -w & nodemon ."
   },
   "author": "Junior Hlongwane",
   "license": "ISC",
@@ -23,14 +23,21 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+    "@types/chai": "^4.2.14",
+    "@types/chai-http": "^4.2.0",
     "@types/connect-mongodb-session": "^2.4.0",
     "@types/cors": "^2.8.9",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.9",
     "@types/express-session": "^1.17.3",
     "@types/formidable": "^1.0.32",
+    "@types/mocha": "^8.2.0",
     "@types/mongoose": "^5.10.3",
     "@types/node": "^14.14.16",
-    "nodemon": "^2.0.6"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1"
   }
 }
